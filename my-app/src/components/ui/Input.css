@@ -1,0 +1,57 @@
+/* Input.css - Theme-Aware Premium */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.input-label {
+    font-size: 0.855rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background: var(--input-bg);
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-input);
+    outline: none;
+}
+
+.input-field:hover {
+    border-color: var(--primary);
+}
+
+.input-field:focus {
+    border-color: var(--border-focus);
+    box-shadow: var(--shadow-input-focus);
+}
+
+.input-field::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Error state */
+.input-error-msg {
+    color: var(--destructive);
+    font-size: 0.82rem;
+    margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

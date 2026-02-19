@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap');
+
+/* ===================================================
+   LIGHT THEME (default)
+   =================================================== */
+:root,
+[data-theme="light"],
+.light {
+  --primary: #635bff;
+  --primary-hover: #4b44ce;
+  --primary-light: #ecebff;
+
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+
+  --text-main: #0a2540;
+  --text-secondary: #425466;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --border-color: #e6e8eb;
+  --border-focus: #635bff;
+
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #94a3b8;
+  --sidebar-active-bg: rgba(99, 91, 255, 0.15);
+  --sidebar-active-color: #818cf8;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.07);
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+
+  --topbar-bg: rgba(255, 255, 255, 0.95);
+  --topbar-border: #e6e8eb;
+
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 20px 40px -15px rgba(99, 91, 255, 0.1);
+  --shadow-input: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-input-focus: 0 0 0 4px rgba(99, 91, 255, 0.12);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  --shadow-dropdown: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  --destructive: #f43f5e;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-spring: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Global page padding — change this ONE value to re-space every page ── */
+  --page-padding: 2.25rem;
+  --page-padding-sm: 1.5rem;
+  --page-padding-xs: 1rem;
+
+  /* ── Content width limits ── */
+  --content-max-width: 1600px;
+}
+
+/* ── Unified Layout Utility ── */
+.main-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--page-padding);
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .main-container {
+    padding: var(--page-padding-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: var(--page-padding-xs);
+  }
+}
+
+
+/* ===================================================
+   DARK THEME
+   =================================================== */
+[data-theme="dark"],
+.dark {
+  --primary: #818cf8;
+  --primary-hover: #6366f1;
+  --primary-light: rgba(129, 140, 248, 0.15);
+
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --bg-subtle: #1e293b;
+  --bg-muted: #334155;
+
+  --text-main: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-inverse: #0f172a;
+
+  --border-color: #334155;
+  --border-focus: #818cf8;
+
+  --sidebar-bg: #080e1a;
+  --sidebar-text: #64748b;
+  --sidebar-active-bg: rgba(129, 140, 248, 0.15);
+  --sidebar-active-color: #a5b4fc;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+
+  --topbar-bg: rgba(15, 23, 42, 0.97);
+  --topbar-border: #1e293b;
+
+  --input-bg: #1e293b;
+  --input-border: #334155;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-input: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-input-focus: 0 0 0 4px rgba(129, 140, 248, 0.2);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  --shadow-dropdown: 0 10px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+  --destructive: #fb7185;
+}
+
+/* ===================================================
+   GLOBAL RESET & BASE
+   =================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth theme switch — applied universally when toggling */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    fill 0.25s ease !important;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: var(--font-sans);
+}
+
+/* ===================================================
+   DARK MODE OVERRIDES FOR INLINE-STYLED COMPONENTS
+   These rules handle components using hardcoded inline
+   styles by targeting structural selectors.
+   =================================================== */
+
+/* --- Page wrappers --- */
+[data-theme="dark"] .App,
+[data-theme="dark"] #root {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* --- Generic white cards / panels (Author pages use inline white bg) --- */
+[data-theme="dark"] div[style*="background: white"],
+[data-theme="dark"] div[style*="background-color: white"],
+[data-theme="dark"] div[style*="background: '#ffffff'"],
+[data-theme="dark"] div[style*="background:white"] {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* --- Sections with #f8fafc background (page bg) --- */
+[data-theme="dark"] div[style*="background: '#f8fafc'"],
+[data-theme="dark"] div[style*="background: #f8fafc"],
+[data-theme="dark"] div[style*="background-color: #f8fafc"],
+[data-theme="dark"] div[style*="background:#f8fafc"] {
+  background: var(--bg-page) !important;
+}
+
+/* --- Text colors --- */
+[data-theme="dark"] p[style*="color: '#64748b'"],
+[data-theme="dark"] p[style*="color: #64748b"],
+[data-theme="dark"] span[style*="color: #64748b"],
+[data-theme="dark"] span[style*="color: '#64748b'"] {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] h1[style*="color: '#0f172a'"],
+[data-theme="dark"] h1[style*="color: #0f172a"],
+[data-theme="dark"] h2[style*="color: '#0f172a'"],
+[data-theme="dark"] h2[style*="color: #0f172a"],
+[data-theme="dark"] h3[style*="color: '#0f172a'"],
+[data-theme="dark"] h3[style*="color: #0f172a"],
+[data-theme="dark"] p[style*="color: '#0f172a'"],
+[data-theme="dark"] p[style*="color: #0f172a"] {
+  color: var(--text-main) !important;
+}
+
+/* --- Borders --- */
+[data-theme="dark"] div[style*="border: '1px solid #e2e8f0'"],
+[data-theme="dark"] div[style*="border: 1px solid #e2e8f0"],
+[data-theme="dark"] div[style*="border-color: #e2e8f0"] {
+  border-color: var(--border-color) !important;
+}
+
+/* --- Inputs --- */
+[data-theme="dark"] input:not([type="range"]) {
+  background-color: var(--input-bg) !important;
+  color: var(--text-main) !important;
+  border-color: var(--input-border) !important;
+}
+
+[data-theme="dark"] input::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* --- Textareas --- */
+[data-theme="dark"] textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text-main) !important;
+  border-color: var(--input-border) !important;
+}
+
+[data-theme="dark"] textarea::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* --- Select dropdowns --- */
+[data-theme="dark"] select {
+  background-color: var(--input-bg) !important;
+  color: var(--text-main) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* ===================================================
+   GLOBAL UTILITIES
+   =================================================== */
+.animate-spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: globalFadeIn 0.35s ease-out;
+}
+
+@keyframes globalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-muted);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
