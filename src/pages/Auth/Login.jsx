@@ -82,7 +82,7 @@ const Login = () => {
                             label={
                                 <>
                                     Password
-                                    <Link to="#" tabIndex="-1" style={{ fontSize: '0.8rem', color: '#635bff', fontWeight: 500 }}>Forgot Password?</Link>
+                                    <Link to="/forgot-password" tabIndex="-1" style={{ fontSize: '0.8rem', color: '#635bff', fontWeight: 500 }}>Forgot Password?</Link>
                                 </>
                             }
                             type="password"

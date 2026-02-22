@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, User, LogOut, LayoutDashboard, Settings, ChevronDown, Sun, Moon, Library, Menu, X } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
+import { logoutUser } from '../../services/api';
 import './DashboardLayout.css';
 
 const SidebarItem = ({ icon: Icon, label, to, active }) => (
@@ -43,12 +44,18 @@ const DashboardLayout = ({ children, role = 'reader' }) => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('userType');
-        localStorage.removeItem('userProfile');
-        navigate('/login');
+    const handleLogout = async () => {
+        try {
+            await logoutUser();
+        } catch (e) {
+            console.warn('Logout API failed', e);
+        } finally {
+            localStorage.removeItem('token');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('userType');
+            localStorage.removeItem('userProfile');
+            navigate('/login');
+        }
     };
 
     const authorLinks = [
