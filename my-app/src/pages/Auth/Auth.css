@@ -1,0 +1,309 @@
+/* Auth.css - Theme-Aware Premium */
+.auth-page {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: var(--bg-page);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+/* Animated background orbs */
+.auth-page::before,
+.auth-page::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbFloat 8s ease-in-out infinite alternate;
+}
+
+.auth-page::before {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(99, 91, 255, 0.12) 0%, transparent 70%);
+}
+
+.auth-page::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
+    animation-delay: -4s;
+}
+
+@keyframes orbFloat {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(30px, 20px) scale(1.1);
+    }
+}
+
+/* Logo header */
+.auth-logo-header {
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 1;
+    animation: fadeSlideDown 0.5s ease-out;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-logo-icon {
+    color: var(--primary);
+}
+
+.auth-logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Main Card */
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    padding: 2.75rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    animation: cardEntrance 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #635bff, #818cf8, #a78bfa);
+}
+
+.auth-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+}
+
+.auth-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Role selector */
+.role-segmented {
+    background: var(--bg-subtle);
+    padding: 4px;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.role-option {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.role-option:hover {
+    color: var(--text-main);
+}
+
+.role-option.active {
+    background: var(--bg-card);
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+.form-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+/* Error Banner */
+.auth-error-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: var(--destructive);
+    font-weight: 500;
+    animation: shakeError 0.4s ease;
+}
+
+@keyframes shakeError {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}
+
+/* Footer */
+.auth-footer {
+    margin-top: 1.75rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.auth-link {
+    color: var(--primary);
+    font-weight: 600;
+    transition: color 0.15s;
+}
+
+.auth-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .auth-card {
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+}
+
+/* OTP Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: cardEntrance 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: background 0.3s ease;
+}
+
+.modal-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.otp-timer {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.otp-timer.expired {
+    color: var(--destructive);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
