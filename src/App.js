@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
+import Forgot from './pages/Auth/Forgot';
 import AuthorDashboard from './modules/Author/Dashboard';
 import ReaderDashboard from './modules/Reader/Dashboard';
 import ReaderBooksList from './modules/Reader/BooksList';
@@ -46,6 +47,7 @@ function App() {
               <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<Forgot />} />
 
               {/* Universal Read Route (No Layout, Full Focus) */}
               <Route path="/read/:uuid" element={<BookReader />} />

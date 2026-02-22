@@ -46,6 +46,40 @@
     color: var(--text-tertiary);
 }
 
+.input-icon-left {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-element-right {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-wrapper.has-icon .input-field {
+    padding-left: 2.5rem;
+}
+
+.input-field.input-error {
+    border-color: var(--destructive);
+}
+
+.input-field.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
+}
+
 /* Error state */
 .input-error-msg {
     color: var(--destructive);

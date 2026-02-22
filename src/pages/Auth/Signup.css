@@ -1,0 +1,315 @@
+/* Signup.css - Premium Onboarding Template */
+
+.signup-wizard-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-page);
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+}
+
+/* Elegant organic background */
+.signup-wizard-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 150vw;
+    height: 150vh;
+    background: radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.08) 0%, transparent 50%);
+    animation: pulseBg 15s ease-in-out infinite alternate;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes pulseBg {
+    from {
+        transform: scale(1) translate(0, 0);
+    }
+
+    to {
+        transform: scale(1.05) translate(-2%, 2%);
+    }
+}
+
+.signup-wizard-card {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 24px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    padding: 3.5rem 3rem;
+    position: relative;
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wizard-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.wizard-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.1) 0%, rgba(99, 91, 255, 0.2) 100%);
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(99, 91, 255, 0.15);
+}
+
+.wizard-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.wizard-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Role Selection Cards */
+.role-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.role-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card:hover {
+    border-color: rgba(99, 91, 255, 0.4);
+    background: var(--bg-subtle);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.role-card.selected {
+    border-color: var(--primary);
+    background: rgba(99, 91, 255, 0.04);
+}
+
+.role-card.selected::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary);
+}
+
+.role-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.role-card:hover .role-icon-wrapper {
+    color: var(--primary);
+    background: rgba(99, 91, 255, 0.1);
+}
+
+.role-card.selected .role-icon-wrapper {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 8px 16px rgba(99, 91, 255, 0.25);
+}
+
+.role-card-content {
+    flex: 1;
+}
+
+.role-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 0.25rem 0;
+}
+
+.role-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Step 2 Form elements */
+.wizard-back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    z-index: 20;
+}
+
+.wizard-back-btn:hover {
+    color: var(--text-main);
+    background: var(--bg-subtle);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.step-dot {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.step-dot.active {
+    background: var(--primary);
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-redirect {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.login-redirect a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.login-redirect a:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* Password Guidelines Compact */
+.password-guidelines-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    padding: 1.2rem;
+    background: var(--bg-subtle);
+    border-radius: 12px;
+    margin-top: -0.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.guideline-item-c {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.guideline-item-c.met {
+    color: #10b981;
+}
+
+.strength-bar-container {
+    grid-column: 1 / -1;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+.strength-weak {
+    background-color: #ef4444;
+    width: 33%;
+}
+
+.strength-medium {
+    background-color: #f59e0b;
+    width: 66%;
+}
+
+.strength-strong {
+    background-color: #10b981;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .signup-wizard-card {
+        padding: 2.5rem 1.75rem;
+        border-radius: 20px;
+    }
+
+    .wizard-back-btn {
+        top: 1.25rem;
+        left: 1.25rem;
+    }
+
+    .password-guidelines-compact {
+        grid-template-columns: 1fr;
+    }
+}

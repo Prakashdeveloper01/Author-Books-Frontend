@@ -70,6 +70,26 @@ export const verifyOtp = async (email, otpCode) => {
     return response.data;
 };
 
+export const forgotPassword = async (email) => {
+    const response = await api.post('/api/auth/forgot-password', { email });
+    return response.data;
+};
+
+export const resetPassword = async (email, otpCode, newPassword, confirmPassword) => {
+    const response = await api.post('/api/auth/reset-password', {
+        email,
+        otpCode,
+        newPassword,
+        confirmPassword
+    });
+    return response.data;
+};
+
+export const logoutUser = async () => {
+    const response = await api.post('/api/auth/logout');
+    return response.data;
+};
+
 export const getProfile = async () => {
     const response = await api.get('/users/profile');
     return response.data;
